@@ -948,3 +948,57 @@ function showFinalScore() {
 
 
 loadQuestion();
+
+
+/* =========================================
+   CONTACT FORM — EMAIL APP HANDOFF
+   ========================================= */
+
+const contactForm = document.getElementById("contactForm");
+const contactStatus = document.getElementById("contactStatus");
+
+if (contactForm) {
+    contactForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const recipient = "YOUR_EMAIL@example.com";
+
+        const name = document.getElementById("contactName").value.trim();
+        const senderEmail = document.getElementById("contactEmail").value.trim();
+        const subject = document.getElementById("contactSubject").value.trim();
+        const message = document.getElementById("contactMessage").value.trim();
+
+        if (!name || !senderEmail || !subject || !message) {
+            if (contactStatus) {
+                contactStatus.textContent = "Please complete all fields.";
+            }
+            return;
+        }
+
+        if (recipient === "YOUR_EMAIL@example.com") {
+            if (contactStatus) {
+                contactStatus.textContent =
+                    "Please replace the placeholder with your real email address in script.js.";
+            }
+            return;
+        }
+
+        const emailSubject = encodeURIComponent(subject);
+        const emailBody = encodeURIComponent(
+            "Name: " + name + "\n" +
+            "Reply email: " + senderEmail + "\n\n" +
+            "Message:\n" + message
+        );
+
+        if (contactStatus) {
+            contactStatus.textContent =
+                "Opening your email app. Please review and send the message there.";
+        }
+
+        window.location.href =
+            "mailto:" + recipient +
+            "?subject=" + emailSubject +
+            "&body=" + emailBody;
+    });
+}
+
