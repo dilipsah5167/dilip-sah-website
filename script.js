@@ -961,7 +961,7 @@ if (contactForm) {
     contactForm.addEventListener("submit", function (event) {
         event.preventDefault();
 
-        const recipient = "YOUR_EMAIL@example.com";
+        const recipient = "dilipsah5167@gmail.com";
 
         const name = document.getElementById("contactName").value.trim();
         const senderEmail = document.getElementById("contactEmail").value.trim();
@@ -975,7 +975,7 @@ if (contactForm) {
             return;
         }
 
-        if (recipient === "YOUR_EMAIL@example.com") {
+        if (recipient === "dilipsah5167@gmail.com.com") {
             if (contactStatus) {
                 contactStatus.textContent =
                     "Please replace the placeholder with your real email address in script.js.";
